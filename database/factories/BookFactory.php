@@ -18,6 +18,12 @@ class BookFactory extends Factory
     {
         return [
             //
+
+            'title' => $this->faker->word,
+            'avatar' => $this->faker->imageUrl(),
+            'author' => $this->faker->name,
+            'category_id' => $this->faker->numberBetween(1, 10),
+
         ];
     }
 }

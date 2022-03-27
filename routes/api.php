@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/categories', function () {
+
+
+    return Category::all();
+});
+Route::get('/books', function () {
+
+
+    return Book::with('category')->take(10)->get();
 });

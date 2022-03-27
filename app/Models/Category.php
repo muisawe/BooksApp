@@ -9,5 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use HasFactory, SoftDeletes;
-    
+
+
+
+
+    public function  books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }
